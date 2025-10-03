@@ -31,8 +31,17 @@ const storage = multer.diskStorage({
   },
 
   filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname) || "";
-    cb(null, `${uuidv4()}${ext}`);
+    const ext = path.extname(file.originalname); // ".png"
+    const baseName = path.basename(file.originalname, ext); // "foto"
+    let finalName = file.originalname;
+    let counter = 1;
+
+    while (fsSync.existsSync(path.join(UPLOADS_DIR, finalName))) {
+      finalName = `${baseName}-${counter}${ext}`;
+      counter++;
+    }
+
+    cb(null, finalName);
   },
 });
 
