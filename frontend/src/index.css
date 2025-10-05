@@ -88,3 +88,10 @@ button.btn-primary:hover { background: var(--button-hover-bg); }
     width: 70%;
   }
 }
+
+@media (min-width: 1024px) {
+  .message {
+    max-width: 25%;
+    width: 30%;
+  }
+}
