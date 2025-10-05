@@ -64,5 +64,19 @@ button.btn-primary:hover { background: var(--button-hover-bg); }
 }
 
 .message {
-  width: 30%;
+  width: 50%;
+}
+
+.message-form textarea {
+  padding:20px;
+  height: 80px;
+  /* width: 50%; */
+  resize: none;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 18px;
+}
+
+.message img {
+  width: 100%;
+  height: auto;
 }
