@@ -115,6 +115,28 @@ A estrutura do projeto está organizada em dois diretórios principais:
 
 Cada diretório possui suas próprias dependências e scripts para facilitar o desenvolvimento e a manutenção.
 
+## Principais Funcionalidades
+As principais funções do seu projeto Planet Tech Chat são:
+
+- Envio e Recebimento de Mensagens:
+
+- Permite que os usuários enviem mensagens de texto em tempo real.
+
+- Upload de Arquivos
+
+- Suporte para envio de imagens e áudios.
+- Os arquivos enviados são armazenados no servidor e exibidos no chat.
+  
+- Avatares Personalizados:
+   - Cada mensagem exibe um avatar com as iniciais do remetente, tornando a interface mais visual e personalizada.
+
+- Estado Global com Context API:
+
+- Gerenciamento eficiente do estado do usuário e das mensagens, garantindo uma experiência fluida.
+- Interface Responsiva e Intuitiva
+
+- Design moderno e responsivo.
+
 ## Contato
 
 Para dúvidas, sugestões ou feedback, entre em contato através do Linkedin: https://www.linkedin.com/in/alissonooliveira/
