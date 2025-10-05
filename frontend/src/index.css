@@ -62,3 +62,7 @@ button.btn-primary:hover { background: var(--button-hover-bg); }
 .chat-header{
   font-family: 'Bitcount Prop Single Ink', sans-serif;
 }
+
+.message {
+  width: 30%;
+}
