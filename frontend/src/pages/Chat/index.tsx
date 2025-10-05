@@ -4,6 +4,7 @@ import { type Message } from '../../types';
 import { fetchMessages, postMessage, uploadFile } from '../../api';
 import MessageList from '../../components/MessageList';
 import MessageForm from '../../components/MessageForm';
+import './style.css';
 
 export default function Chat({ user, onLogout }: { user: string; onLogout: () => void }) {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -132,7 +133,7 @@ export default function Chat({ user, onLogout }: { user: string; onLogout: () =>
       <header className="chat-header">
         <img src="./public/window.png" alt="chat" style={{ width: '20px', height: '20px' }} />
         <h3>Conversas</h3>
-        <div>
+        <div className="user-info">
           <span style={{ marginRight: '8px' }}>Bem vindo(a)</span>
           <span className="user-badge">{user}</span>
           <button className="btn-ghost" onClick={handleLogoutClick} style={{ backgroundColor: 'purple', color: '#fff' }}>
