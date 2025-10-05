@@ -130,10 +130,12 @@ export default function Chat({ user, onLogout }: { user: string; onLogout: () =>
   return (
     <div className="chat-root">
       <header className="chat-header">
-        <h3>Chat</h3>
+        <img src="./public/window.png" alt="chat" style={{ width: '20px', height: '20px' }} />
+        <h3>Conversas</h3>
         <div>
+          <span style={{ marginRight: '8px' }}>Bem vindo(a)</span>
           <span className="user-badge">{user}</span>
-          <button className="btn-ghost" onClick={handleLogoutClick}>
+          <button className="btn-ghost" onClick={handleLogoutClick} style={{ backgroundColor: 'purple', color: '#fff' }}>
             Logout
           </button>
         </div>
