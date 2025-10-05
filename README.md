@@ -5,6 +5,50 @@
 O Planet Tech Chat é uma aplicação de chat em tempo real que utiliza tecnologias modernas para proporcionar uma experiência fluida e interativa. O projeto é dividido em duas partes principais: o **Frontend** e o **Backend**.
 
 <details>
+<summary><strong>🖥️ Backend</strong></summary>
+
+### Tecnologias Utilizadas
+
+- **Node.js**: Ambiente de execução para JavaScript no lado do servidor.
+- **Express.js**: Framework web para Node.js.
+- **Multer**: Middleware para upload de arquivos.
+- **UUID**: Geração de identificadores únicos.
+
+### Dependências
+
+- `cors`: ^2.8.5
+- `express`: ^5.1.0
+- `multer`: ^2.0.2
+- `uuid`: ^13.0.0
+
+### Dependências de Desenvolvimento
+
+- `nodemon`: ^3.1.10
+
+### Como Rodar o Backend
+
+1. Navegue até o diretório `backend`:
+   ```bash
+   cd backend
+   ```
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Inicie o servidor:
+   ```bash
+   npm run dev
+   ```
+4. O servidor estará disponível em [http://localhost:3000](http://localhost:3000).
+
+### Work Flow
+
+- **Desenvolvimento**: Utilize `npm run dev` para rodar o servidor com reinício automático.
+- **Produção**: Inicie o servidor com `npm start`.
+
+</details>
+
+<details>
 <summary><strong>🌐 Frontend</strong></summary>
 
 ### Tecnologias Utilizadas
@@ -59,50 +103,6 @@ O Planet Tech Chat é uma aplicação de chat em tempo real que utiliza tecnolog
 - **Desenvolvimento**: Utilize `npm run dev` para rodar o servidor local.
 - **Build**: Gere os arquivos otimizados para produção com `npm run build`.
 - **Lint**: Verifique problemas de código com `npm run lint`.
-
-</details>
-
-<details>
-<summary><strong>🖥️ Backend</strong></summary>
-
-### Tecnologias Utilizadas
-
-- **Node.js**: Ambiente de execução para JavaScript no lado do servidor.
-- **Express.js**: Framework web para Node.js.
-- **Multer**: Middleware para upload de arquivos.
-- **UUID**: Geração de identificadores únicos.
-
-### Dependências
-
-- `cors`: ^2.8.5
-- `express`: ^5.1.0
-- `multer`: ^2.0.2
-- `uuid`: ^13.0.0
-
-### Dependências de Desenvolvimento
-
-- `nodemon`: ^3.1.10
-
-### Como Rodar o Backend
-
-1. Navegue até o diretório `backend`:
-   ```bash
-   cd backend
-   ```
-2. Instale as dependências:
-   ```bash
-   npm install
-   ```
-3. Inicie o servidor:
-   ```bash
-   npm run dev
-   ```
-4. O servidor estará disponível em [http://localhost:3000](http://localhost:3000).
-
-### Work Flow
-
-- **Desenvolvimento**: Utilize `npm run dev` para rodar o servidor com reinício automático.
-- **Produção**: Inicie o servidor com `npm start`.
 
 </details>
 
