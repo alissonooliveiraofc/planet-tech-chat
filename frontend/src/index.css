@@ -10,6 +10,8 @@
   --accent:#2b8aef;
   --muted:#6b7280;
   --mine:#dcf8c6;
+  --button-bg: purple;
+  --button-hover-bg: #6a0dad;
 }
 
 *{box-sizing:border-box}
@@ -21,7 +23,8 @@ html,body,#root {height:100%; margin:0; font-family: Inter, Arial, sans-serif; b
 
 button{cursor:pointer}
 button.btn-ghost{background:transparent;border:1px solid #ccc;padding:6px 10px;border-radius:6px}
-button.btn-primary{background:var(--accent);color:#fff;border:none;padding:8px 12px;border-radius:8px}
+button.btn-primary{background: var(--button-bg); color:#fff;border:none;padding:8px 12px;border-radius:8px}
+button.btn-primary:hover { background: var(--button-hover-bg); }
 
 .chat-root{display:flex;flex-direction:column;height:100vh}
 .chat-header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:#fff;border-bottom:1px solid #eee}

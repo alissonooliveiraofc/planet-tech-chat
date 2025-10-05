@@ -32,7 +32,7 @@ export default function MessageItem({ message, isMine }: { message: Message; isM
             width: '32px',
             height: '32px',
             borderRadius: '50%',
-            backgroundColor: '#007bff',
+            backgroundColor: 'purple',
             color: '#fff',
             fontWeight: 'bold',
             fontSize: '14px',

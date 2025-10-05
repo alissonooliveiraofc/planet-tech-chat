@@ -86,6 +86,25 @@ export default function MessageForm({ onSendText, onSendFile }: { onSendText: (t
           <button type="submit" className="btn-primary">{file ? 'Enviar arquivo' : 'Enviar'}</button>
         </div>
       </div>
+
+      <style>
+        {`
+        .btn-primary {
+          background-color: purple;
+          color: white;
+          border: none;
+          padding: 0.5rem 1rem;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+
+        .btn-primary {
+          background-color: purple;}
+        .btn-primary:hover {
+          background-color: #6a0dad;
+        }
+      `}
+      </style>
     </form>
   );
 }

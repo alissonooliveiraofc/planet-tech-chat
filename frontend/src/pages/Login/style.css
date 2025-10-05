@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 50%;
+}
+
+.card h2 {
+  text-align: center;
+  padding: 30px;
+  font-family: "Bitcount Prop Single Ink", sans-serif;
+  font-size: 30px;
+  /* margin-top: -20px; */
+}
+
+.card button {
+  background-color: purple;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 12px;
+  width: 50%;
+}

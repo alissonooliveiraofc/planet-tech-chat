@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './style.css';
 
 export default function Login({ onLogin }: { onLogin: (name: string) => void }) {
   const [name, setName] = useState('');
@@ -17,7 +18,7 @@ export default function Login({ onLogin }: { onLogin: (name: string) => void }) 
   return (
     <div className="center-screen">
       <form className="card login-card" onSubmit={submit}>
-        <h2>Entrar</h2>
+        <h2>Planet Tech Chat</h2>
         <input
           value={name}
           onChange={(e) => {
