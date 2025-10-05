@@ -58,6 +58,12 @@ export default function MessageForm({ onSendText, onSendFile }: { onSendText: (t
           maxLength={maxChars}
           onChange={(e) => setText(e.target.value)}
           rows={2}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+              e.preventDefault();
+              submitText();
+            }
+          }}
         />
         <div className="char-count">{maxChars - text.length}</div>
       </div>
