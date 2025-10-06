@@ -129,7 +129,7 @@ export default function Chat({ user, onLogout }: { user: string; onLogout: () =>
   return (
     <div className="chat-root">
       <header className="chat-header">
-        <img src="./public/window.png" alt="chat" style={{ width: '20px', height: '20px' }} />
+        <img src="/window.png" alt="chat" style={{ width: '20px', height: '20px' }} />
         <h3>Conversas</h3>
         <div className="user-info">
           <span style={{ marginRight: '8px' }}>Bem vindo(a)</span>
