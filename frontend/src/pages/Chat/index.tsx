@@ -102,6 +102,14 @@ export default function Chat({ user, onLogout }: { user: string; onLogout: () =>
 
       const { url } = await uploadFile(file);
 
+      setTimeout(() => {
+        setMessages((prev) =>
+          prev.map((msg) =>
+            msg.id === created.id ? { ...msg, content: `${url}?t=${Date.now()}` } : msg
+          )
+        );
+      }, 1000);
+
       const created = await postMessage({
         content: url,
         sender: user,
