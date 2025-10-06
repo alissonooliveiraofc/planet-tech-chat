@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { type Message } from '../types';
 import MessageItem from './MessageItem';
 // import { v4 as uuidv4 } from 'uuid';
 
-export default function MessageList({ messages, currentUser, loading }: { messages: Message[]; currentUser: string; loading: boolean }) {
+const MessageList = React.memo(function MessageList({ messages, currentUser, loading }: { messages: Message[]; currentUser: string; loading: boolean }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [isNearBottom, setIsNearBottom] = useState(true);
 
@@ -39,4 +39,6 @@ export default function MessageList({ messages, currentUser, loading }: { messag
       ))}
     </div>
   );
-}
+});
+
+export default MessageList;
