@@ -91,7 +91,6 @@ export default function Chat({ user, onLogout }: { user: string; onLogout: () =>
 
   const handleSendFile = async (file: File) => {
     try {
-      // Exibe um placeholder local enquanto o upload é processado
       const placeholder = {
         id: `temp-${Date.now()}`,
         content: URL.createObjectURL(file),
@@ -101,17 +100,14 @@ export default function Chat({ user, onLogout }: { user: string; onLogout: () =>
       };
       setMessages((prev) => [...prev, placeholder]);
 
-      // Faz o upload do arquivo
       const { url } = await uploadFile(file);
 
-      // Envia a mensagem ao backend com a URL do arquivo
       const created = await postMessage({
         content: url,
         sender: user,
         type: placeholder.type,
       });
 
-      // Substitui o placeholder pela mensagem final
       setMessages((prev) =>
         prev.map((msg) => (msg.id === placeholder.id ? created : msg))
       );
