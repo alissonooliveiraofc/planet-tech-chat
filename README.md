@@ -58,6 +58,7 @@ O Planet Tech Chat é uma aplicação de chat em tempo real que utiliza tecnolog
 - **Vite**: Ferramenta de build rápida para desenvolvimento web moderno.
 - **React Router DOM**: Gerenciamento de rotas no React.
 - **Context API**: Gerenciamento de estado global.
+- **Node**: 20.19+ ou 22.12+ (para rodar o vite).
 
 ### Dependências
 
