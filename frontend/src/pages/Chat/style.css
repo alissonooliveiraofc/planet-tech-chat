@@ -1,4 +1,11 @@
 @media (max-width: 600px) {
+
+.chat-root{
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
   .chat-header {
     flex-direction: column;
     align-items: flex-start;
@@ -23,4 +30,16 @@
   .meta {
     padding: 0px;
   }
+
+  body {
+    margin: 0;
+    height: 100dvh;
+    overflow: hidden;
+  }
+}
+
+.chat-root{
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }

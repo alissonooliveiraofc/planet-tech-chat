@@ -24,3 +24,10 @@
   margin-top: 12px;
   width: 50%;
 }
+
+.center-screen {
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
