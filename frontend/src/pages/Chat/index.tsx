@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { type Message } from '../../types';
+import { type Message, type MessageType } from '../../types';
 import { fetchMessages, postMessage, uploadFile } from '../../api';
 import MessageList from '../../components/MessageList';
 import MessageForm from '../../components/MessageForm';
@@ -8,10 +8,9 @@ import './style.css';
 
 export default function Chat({ user, onLogout }: { user: string; onLogout: () => void }) {
   const [messages, setMessages] = useState<Message[]>([]);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false); tirei o loading 
   const navigate = useNavigate();
   const intervalRef = useRef<number | null>(null);
-  const latestFetchRef = useRef<number>(0);
 
   const mergeMessages = (oldList: Message[], newList: Message[]): Message[] => {
 
@@ -48,25 +47,14 @@ export default function Chat({ user, onLogout }: { user: string; onLogout: () =>
   };
 
   const loadMessages = async () => {
-    const fetchStartedAt = Date.now();
-    latestFetchRef.current = fetchStartedAt;
-
     try {
-      setLoading(true);
       const data = await fetchMessages();
-
-      if (latestFetchRef.current !== fetchStartedAt) return;
-
-
-      const merged = mergeMessages(messages, data);
-
-      if (merged !== messages) {
-        setMessages(merged);
-      }
+      setMessages((prev) => {
+        const merged = mergeMessages(prev, data);
+        return merged !== prev ? merged : prev;
+      });
     } catch (err) {
       console.error('Erro ao carregar mensagens:', err);
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -93,12 +81,7 @@ export default function Chat({ user, onLogout }: { user: string; onLogout: () =>
         type: 'text',
       });
 
-      setMessages((prev) => {
-        const newList = [...prev, created];
-        return newList;
-      });
-
-      loadMessages();
+      setMessages((prev) => mergeMessages(prev, [...prev, created]));
     } catch (err) {
       console.error(err);
       alert('Erro ao enviar mensagem');
@@ -108,15 +91,30 @@ export default function Chat({ user, onLogout }: { user: string; onLogout: () =>
 
   const handleSendFile = async (file: File) => {
     try {
+      // Exibe um placeholder local enquanto o upload é processado
+      const placeholder = {
+        id: `temp-${Date.now()}`,
+        content: URL.createObjectURL(file),
+        sender: user,
+        type: file.type.startsWith('image') ? 'image' as MessageType : 'audio' as MessageType,
+        timestamp: new Date().toISOString(),
+      };
+      setMessages((prev) => [...prev, placeholder]);
+
+      // Faz o upload do arquivo
       const { url } = await uploadFile(file);
-      const type = file.type.startsWith('image') ? 'image' : 'audio';
+
+      // Envia a mensagem ao backend com a URL do arquivo
       const created = await postMessage({
         content: url,
         sender: user,
-        type,
+        type: placeholder.type,
       });
-      setMessages((prev) => [...prev, created]);
-      loadMessages();
+
+      // Substitui o placeholder pela mensagem final
+      setMessages((prev) =>
+        prev.map((msg) => (msg.id === placeholder.id ? created : msg))
+      );
     } catch (err) {
       console.error(err);
       alert('Erro ao enviar arquivo');
@@ -143,7 +141,7 @@ export default function Chat({ user, onLogout }: { user: string; onLogout: () =>
       </header>
 
       <main className="chat-main">
-        <MessageList messages={messages} currentUser={user} loading={loading} />
+        <MessageList messages={messages} currentUser={user} loading={false} />
       </main>
 
       <footer className="chat-footer">

@@ -3,7 +3,7 @@ import { type Message } from '../types';
 import MessageItem from './MessageItem';
 // import { v4 as uuidv4 } from 'uuid';
 
-const MessageList = React.memo(function MessageList({ messages, currentUser, loading }: { messages: Message[]; currentUser: string; loading: boolean }) {
+const MessageList = React.memo(function MessageList({ messages, currentUser }: { messages: Message[]; currentUser: string; loading: boolean }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [isNearBottom, setIsNearBottom] = useState(true);
 
@@ -33,7 +33,7 @@ const MessageList = React.memo(function MessageList({ messages, currentUser, loa
 
   return (
     <div className="messages-container" ref={containerRef}>
-      {loading && <div className="muted">Carregando...</div>}
+      {/* {loading && <div className="muted">Carregando...</div>} */}
       {messages.map((m) => (
         <MessageItem key={m.id} message={m} isMine={m.sender === currentUser} />
       ))}
