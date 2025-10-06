@@ -53,6 +53,7 @@ export default function MessageForm({ onSendText, onSendFile }: { onSendText: (t
     <form className="message-form" onSubmit={(e) => { e.preventDefault(); if (file) submitFile(); else submitText(); }}>
       <div className="row">
         <textarea
+          autoFocus={true}
           placeholder="Digite uma mensagem..."
           value={text}
           maxLength={maxChars}
